@@ -5,6 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+    EditText name, gender, age;
+    Spinner pic;
+    Button submit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        Details details = new Details();
         // Create a list of contacts to display in RecyclerView
         List<Details> detailList = new ArrayList<>();
         // Adding all the contacts object in list
-        detailList.add(new Details);
+        detailList.add(new Details("Aashish","male","21",R.drawable.a));
+        detailList.add(new Details("Aashish","male","21",R.drawable.b));
 
 
         DetailAdapter detailAdapter = new DetailAdapter(this,detailList);
