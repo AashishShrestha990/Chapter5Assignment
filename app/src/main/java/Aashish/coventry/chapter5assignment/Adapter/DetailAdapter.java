@@ -21,7 +21,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
     View.OnClickListener context;
     List<Details> detailList;
 
-    public DetailAdapter(View.OnClickListener context, List<Details> detailList) {
+    public DetailAdapter(View.OnClickListener context, List<Details> detailListz) {
         this.context = context;
         this.detailList = detailList;
     }

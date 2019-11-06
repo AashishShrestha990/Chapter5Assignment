@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup gender;
     RadioButton btngen;
     Button submit;
-    private String pic[] = {"a, b"};
+  //  List<UserDetail> userList = new ArrayList<>();
+
 
 
     @Override
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         gender = findViewById(R.id.gender);
         age = findViewById(R.id.age);
         submit = findViewById(R.id.submit);
+
+        String pic[] = {"a, b"};
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -94,12 +97,15 @@ public class MainActivity extends AppCompatActivity {
 
                 DetailAdapter detailAdapter = new DetailAdapter(this, detailList);
                 recyclerView.setAdapter(detailAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
             }
         });
 
 
         //Display all the contacts in linear layour (vertically)
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
 
     }
