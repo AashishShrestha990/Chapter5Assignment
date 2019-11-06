@@ -6,12 +6,14 @@ public class Details {
     private String age;
     private int imageId;
 
-    public Details(String name, String gender,String age, int imageId) {
+    public Details(String name,String age, String gender, int imageId) {
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.imageId = imageId;
     }
+
+
 
     public String getName() {
         return name;

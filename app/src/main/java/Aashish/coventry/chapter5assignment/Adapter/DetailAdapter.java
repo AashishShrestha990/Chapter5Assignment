@@ -18,10 +18,10 @@ import Aashish.coventry.chapter5assignment.R;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailViewHolder> {
 
-    Context context;
+    View.OnClickListener context;
     List<Details> detailList;
 
-    public DetailAdapter(Context context, List<Details> detailList) {
+    public DetailAdapter(View.OnClickListener context, List<Details> detailList) {
         this.context = context;
         this.detailList = detailList;
     }
@@ -45,7 +45,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return detailList.size();
     }
 
     public class DetailViewHolder extends RecyclerView.ViewHolder {
