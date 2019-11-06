@@ -21,8 +21,8 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
     View.OnClickListener context;
     List<Details> detailList;
 
-    public DetailAdapter(View.OnClickListener context, List<Details> detailListz) {
-        this.context = context;
+    public DetailAdapter(View.OnClickListener context, List<Details> detailList) {
+        this.context =  context;
         this.detailList = detailList;
     }
 
@@ -37,6 +37,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
     @Override
     public void onBindViewHolder(@NonNull DetailViewHolder holder, int position) {
         final Details details = detailList.get(position);
+
         holder.imgProfile.setImageResource(details.getImageId());
         holder.tvName.setText(details.getName());
         holder.tvAge.setText(details.getAge());

@@ -6,14 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup gender;
     RadioButton btngen;
     Button submit;
-  //  List<UserDetail> userList = new ArrayList<>();
+    int picvalue;
+    // Create mickey list of contacts to display in RecyclerView
+    List<Details> detailList = new ArrayList<>();
 
 
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         age = findViewById(R.id.age);
         submit = findViewById(R.id.submit);
 
-        String pic[] = {"a, b"};
+        String pic[] = {"mickey", "smiley", "minion"};
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -56,30 +56,42 @@ public class MainActivity extends AppCompatActivity {
         );
         spinPic.setAdapter(adapter);
 
-        spinPic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-                if (spinPic.getSelectedItem().toString().equals("a")) {
-                   int picvalue = R.drawable.a;
-                } else {
-                    int picvalue = R.drawable.b;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        final int picvalue = R.drawable.a;
+//        spinPic.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+////                if (spinPic.getSelectedItem().toString().equals("mickey")) {
+////                    int picvalue = R.drawable.mickey;
+////                } else {
+////                    int picvalue = R.drawable.smiley;
+////                }
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//        final int picvalue = R.drawable.mickey;
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                String pic=spinPic.getSelectedItem().toString();
+                if(pic=="mickey"){
+                    picvalue=  R.drawable.mickey;
+                }
+
+                if(pic=="smiley"){
+                    picvalue=  R.drawable.smiley;
+                }
+
+                if(pic=="minion"){
+                    picvalue=  R.drawable.minion;
+                }
                 int selectedId = gender.getCheckedRadioButtonId();
 
                 // find the radiobutton by returned id
@@ -89,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 String agevalue = age.getText().toString();
                 String gendervalue = btngen.getText().toString();
 
-                // Create a list of contacts to display in RecyclerView
-                List<Details> detailList = new ArrayList<>();
+
                 // Adding all the contacts object in list
                 detailList.add(new Details(namevalue, agevalue, gendervalue, picvalue));
 //                detailList.add(new Details("vgjj", "3"));
